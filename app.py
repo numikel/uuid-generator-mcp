@@ -7,5 +7,8 @@ mcp = FastMCP("uuid-generator-mcp")
 def generate_uuid() -> str:
     return str(uuid4())
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == "__main__":
+    main()
