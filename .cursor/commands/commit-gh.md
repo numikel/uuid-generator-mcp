@@ -1,9 +1,12 @@
-Act as an expert software developer with access to the integrated terminal. Your task is to fully prepare a git commit for the staged changes.
+Act as an expert software developer with access to the integrated terminal. Your task is to analyze a summary of code modifications and prepare a complete git commit.
 
 Follow these steps precisely:
-1.  **Execute the command `git diff --staged`** in the terminal to get the context of the changes. Do not ask me for the diff output; you must obtain it yourself.
-2.  Based on the output of that command, **create a commit message in English** that strictly follows the Conventional Commits specification.
+1.  **Execute the command `git diff --stat`** to get a summary of all unstaged changes. This command provides a list of modified files without the full content diff. Do not ask for the output; obtain it yourself.
+2.  Based on the file list and change summary from the command, **create a commit message in English** that strictly follows the Conventional Commits specification.
     * The message must have a **type** (e.g., feat, fix, chore, docs, refactor).
-    * It must have a concise **subject** in the imperative mood (e.g., "add login feature" not "added login feature").
-    * If necessary, include a more detailed **body** explaining the 'what' and 'why' of the changes.
-3.  **Provide the complete and final terminal commands** to commit the changes using the generated message and then push them to the remote branch.
+    * It must have a concise **subject** in the imperative mood (e.g., "add login feature").
+    * Infer the purpose of the changes from the file paths and summary. If the intent isn't perfectly clear, create a reasonable and general message.
+3.  **Provide the complete and final sequence of terminal commands** to:
+    a) Stage all the changes (`git add .`).
+    b) Commit them using the generated message.
+    c) Push the commit to the remote branch.

@@ -1,0 +1,16 @@
+---
+alwaysApply: true
+---
+### Rules for text and code formatting
+
+1.  **Use sentence case for titles and headings:** All titles, headings, and subheadings in the generated text (e.g., documentation, articles, descriptions) should be formatted using **sentence case**. This means only the first word and proper nouns are capitalized.
+    * **Correct example:** `Cursor MCP configuration`
+    * **Incorrect example:** `Cursor MCP Configuration`
+
+2.  **Prioritize language grammar rules:** Always analyze the language in which the content is being written (e.g., English, Polish, German) and strictly follow its rules for orthography, grammar, and punctuation. If a language's rules require different capitalization (such as capitalizing all nouns in German), those rules **override** the general sentence case instruction.
+
+3.  **Preserve original capitalization for exceptions:** Never modify the letter case of the following items:
+    * **Proper nouns:** e.g., Google, Microsoft, Warsaw.
+    * **Technical terms and technology names:** e.g., JavaScript, Python, Docker, React.
+    * **Acronyms:** e.g., API, JSON, HTML.
+    * **Code elements:** variable names, function names, classes, modules, etc. (e.g., `getUserData`, `calculatePrice`).

@@ -1,106 +1,167 @@
-# 🎯 UUID Generator MCP
+# UUID Generator MCP
 
-A simple and efficient Model Context Protocol (MCP) server for generating universally unique identifiers (UUIDs).
-
-## 📊 Badges
-
-![Python Version](https://img.shields.io/badge/python-3.12+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Version](https://img.shields.io/badge/version-0.1.0-orange.svg)
+UUID Generator MCP is a Model Context Protocol (MCP) server for generating universally unique identifiers (UUIDs) with seamless AI assistant integration.
 
 ## ✨ Features
 
-✅ **Simple UUID Generation** - Generate RFC 4122 compliant UUIDs using Python's uuid4()  
-✅ **MCP Integration** - Built on FastMCP framework for seamless integration with MCP-compatible applications  
-✅ **Fast and Reliable** - Lightweight implementation with minimal dependencies  
-✅ **Python Native** - Leverages Python's built-in uuid module for cryptographically secure generation  
+✅ **Simple UUID Generation** - Generate RFC 4122 compliant UUIDs using Python's cryptographically secure uuid4()
+✅ **MCP Integration** - Built on FastMCP framework for seamless integration with MCP-compatible AI applications
+✅ **Fast and Reliable** - Lightweight implementation with minimal dependencies and instant UUID generation
+✅ **Python Native** - Leverages Python's built-in uuid module for industry-standard UUID creation
 
-## 🔧 Requirements / Prerequisites
+## Quick Start
 
-- **Python**: 3.12 or higher
-- **Package Manager**: uv (recommended) or pip
+1. **Install MCP server in your AI tool**
 
-## 📦 Installation
+   👉 Guidelines for most popular AI Tools below
 
-### Using uv (Recommended)
+2. **Ask your AI assistant:**
+
+   > "Please generate me a uuid with available tools"
+
+## Installation & setup
+
+- [Cursor IDE](#cursor-ide)
+- [Claude Code](#claude-code)
+- [Other tools](#other-tools)
+
+### Cursor IDE
+
+Add the following configuration to your `.cursor/mcp.json` file:
+
+```json
+{
+  "mcpServers": {
+    "generate-uuid-mcp": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/numikel/uuid-generator-mcp",
+        "generate-uuid"
+      ],
+      "transport": "stdio"
+    }
+  }
+}
+```
+
+### Claude Code
+
+**Run the following command in your project directory:**
+
+```
+claude mcp add generate-uuid-mcp uvx '--from' 'git+https://github.com/numikel/uuid-generator-mcp' 'generate-uuid'
+```
+
+You can alternatively create `.mcp.json` file in your project directory with the following content:
+
+```json
+{
+  "mcpServers": {
+    "generate-uuid-mcp": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/numikel/uuid-generator-mcp",
+        "generate-uuid"
+      ],
+      "transport": "stdio"
+    }
+  }
+}
+```
+
+### Other tools
+
+For other MCP-compatible tools, create an `mcp_config.json` file in your project's root directory:
+
+```json
+{
+  "mcpServers": {
+    "generate-uuid-mcp": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/numikel/uuid-generator-mcp",
+        "generate-uuid"
+      ],
+      "transport": "stdio"
+    }
+  }
+}
+```
+
+## Usage
+
+Once installed and configured, you can invoke the tool by asking your AI assistant:
+
+> "Please generate me a uuid with available tools"
+
+## Output Format
+
+The tool generates RFC 4122 compliant UUID4 strings:
+
+```
+550e8400-e29b-41d4-a716-446655440000
+```
+
+## Development
+
+### Prerequisites
 
 ```bash
-cd uuid-generator-mcp
-uv sync
+# Python 3.12 or higher
+# Package Manager: uv
 ```
 
-### Using pip
+### Development mode
 
 ```bash
-cd uuid-generator-mcp
-pip install -r requirements.txt
+# Using uv
+uv run app.py
+
+# Or using the installed script
+generate-uuid
 ```
 
-## ⚙️ Configuration
-
-No additional configuration is required. The MCP server runs with default settings and generates UUIDs on-demand.
-
-## 🚀 Quick Start / Usage
-
-### Running the MCP Server
-
-```bash
-python main.py
-```
-
-### Using the UUID Generation Tool
-
-Once the MCP server is running, you can use the `generate_uuid` tool to create new UUIDs:
-
-```python
-# The server exposes a single tool: generate_uuid()
-# Returns a string representation of a UUID4
-uuid = generate_uuid()  # Example: "550e8400-e29b-41d4-a716-446655440000"
-```
-
-## 📁 Project Structure
+## 📁 Project structure
 
 ```
 uuid-generator-mcp/
-├── main.py              # Main MCP server implementation
-├── pyproject.toml       # Project configuration and dependencies
-├── uv.lock             # Lock file for uv package manager
-└── README.md           # This file
+├── app.py                  # Main MCP server implementation with UUID generation tool
+├── pyproject.toml          # Project configuration, dependencies, and CLI script definition
+├── uv.lock                 # Lock file for uv package manager ensuring reproducible builds
+└── README.md               # Project documentation
 ```
 
 ## 🛠️ Development
 
-### Running Tests
+### Development commands
 
 ```bash
-# No tests are currently implemented
-# Add tests in a future version
+# Run the server in development mode
+uv run app.py
+
+# Or use the script
+generate-uuid
 ```
 
-### Code Quality
+## Contributing
 
-```bash
-# Install development dependencies (if added)
-uv sync --dev
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-# Run linters/formatters (when configured)
-# black . && isort . && flake8 .
-```
-
-## 🤝 Contributing
-
-We welcome contributions! Please follow these steps:
-
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/new-feature`)
-3. **Commit** your changes using Conventional Commits (`feat: add new-feature`)
-4. **Push** to the branch (`git push origin feature/new-feature`)
-5. **Open** a Pull Request
-
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
 
-## 👤 Author
+## Author
 
 [@numikel](https://github.com/numikel)
+
+## Repository
+
+[https://github.com/numikel/uuid-generator-mcp](https://github.com/numikel/uuid-generator-mcp)
