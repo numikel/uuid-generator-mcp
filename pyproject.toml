@@ -1,9 +1,19 @@
 [project]
 name = "uuid-generator-mcp"
 version = "0.1.0"
-description = "Add your description here"
+description = "UUID Generator MCP Server"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fastmcp>=2.12.4",
 ]
+
+[project.scripts]
+generate-uuid = "main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = []
